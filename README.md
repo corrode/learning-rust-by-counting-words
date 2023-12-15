@@ -63,7 +63,7 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 * Get it to run
 * Code quality doesn’t matter
 * Bonus: refactor the code a bit
-* Bonus: try a programming paradigm (e.g. functional)
+* Bonus: try a different programming paradigm (e.g. functional)
 
 ## Block 2 - Count Lines and Characters
 
@@ -74,7 +74,7 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 ## Block 3 - Multiple Files and Stdin
 
 * Parse CLI arguments with `std`
-* Accpet multiple files as input
+* Accept multiple files as input
 * support `stdin`
 * Proper error handling
 * Bonus: Clap
@@ -83,13 +83,13 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 
 * Add unit tests
 * Linting with clippy
-* Bonsu: split you code into `lib` and `main`
+* Bonus: split your code into `lib.rs` and `main.rs`
 
 ## Block 5 - Idiomatic Rust
 
 * What is idiomatic Rust?
 * Discussing programming paradigms in Rust
-* Functional vs. Imperative vs OOP
+* Functional vs. Imperative vs. OOP
 
 ## Block 6 - Performance
 
@@ -105,7 +105,7 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 ## Block 8 - Releasing Crates
 
 * Release your package on crates.io
-* Add a basic GitHub actions workflow
+* Add a basic GitHub Actions workflow
 
 ## Block 9 - Choose Your Own Adventure
 
