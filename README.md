@@ -67,17 +67,17 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 
 ## Block 2 - Count Lines and Characters
 
-* Count characters
-* Count lines
-* Bonus: Focus on structuring code
+* Also count characters
+* Also count lines
+* Bonus: Focus on code structure, readability, and extensibility
 
 ## Block 3 - Multiple Files and Stdin
 
-* Parse CLI arguments with `std`
 * Accept multiple files as input
-* support `stdin`
-* Proper error handling
-* Bonus: Clap
+* Parse CLI arguments with `std`
+* Proper error handling with `Result`
+* Bonus: Print the total count over all files at the end
+* Bonus: support `stdin` (standard input), e.g. `cat file.txt | wc`
 
 ## Block 4 - Testing and Linting
 
