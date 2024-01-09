@@ -92,9 +92,10 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 
 ## Block 6 - Performance
 
-* Performance 
+* Let's measure the performance of your code
 * Criterion
 * Flamegraphs
+* Bonus: Try to improve the performance
 
 ## Block 7 - Rust for the Web
 
