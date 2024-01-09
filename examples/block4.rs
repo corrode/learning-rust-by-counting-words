@@ -1,6 +1,6 @@
 // New Tasks:
-// * Accept multiple files as input
-// * Proper error handling with `Result`
+// * Add unit tests
+// * Lint your code with clippy
 
 use std::env;
 use std::fmt::{self, Display, Formatter};
@@ -18,14 +18,11 @@ struct Counter {
 impl Counter {
     fn count<R: BufRead>(&mut self, reader: R) -> Result<&mut Counter, std::io::Error> {
         for line in reader.lines() {
-            let line = line?;
+            let line = line?; // Handle the Result, return error if any
             self.lines += 1;
             self.words += line.split_whitespace().count();
             self.chars += line.chars().count();
         }
-
-        // Also count newline characters
-        self.chars += self.lines;
 
         Ok(self)
     }
@@ -53,4 +50,37 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use std::fs;
+
+    use super::*;
+
+    #[test]
+    fn test_count() {
+        let input = "Hello, world!\n";
+        let reader = BufReader::new(input.as_bytes());
+
+        let mut counter = Counter::default();
+        counter.count(reader).unwrap();
+
+        assert_eq!(counter.lines, 1);
+        assert_eq!(counter.words, 2);
+        assert_eq!(counter.chars, 13);
+    }
+
+    #[test]
+    fn test_count_file() {
+        let input = fs::read_to_string("fixtures/test.txt").unwrap();
+        let reader = BufReader::new(input.as_bytes());
+
+        let mut counter = Counter::default();
+        counter.count(reader).unwrap();
+
+        assert_eq!(counter.lines, 9);
+        assert_eq!(counter.words, 128);
+        assert_eq!(counter.chars, 694);
+    }
 }

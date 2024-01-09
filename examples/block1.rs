@@ -4,20 +4,12 @@
 // * Code quality doesn’t matter
 
 use std::env;
-use std::fs::File;
-use std::io::prelude::*;
-use std::io::BufReader;
+use std::fs;
 
 fn main() {
     let path = env::args().nth(1).expect("Usage: block1 <path>");
-    let file = File::open(path).expect("Could not open file");
-    let reader = BufReader::new(file);
+    let contents = fs::read_to_string(path).expect("Could not read file");
+    let words = contents.split_whitespace().count();
 
-    let mut count = 0;
-    for line in reader.lines() {
-        let line = line.expect("Could not read line");
-        count += line.split_whitespace().count();
-    }
-
-    println!("Word count: {}", count);
+    println!("Word count: {}", words);
 }

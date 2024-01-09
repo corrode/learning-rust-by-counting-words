@@ -74,7 +74,6 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 ## Block 3 - Multiple Files and Stdin
 
 * Accept multiple files as input
-* Parse CLI arguments with `std`
 * Proper error handling with `Result`
 * Bonus: Print the total count over all files at the end
 * Bonus: support `stdin` (standard input), e.g. `cat file.txt | wc`
@@ -82,10 +81,10 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 ## Block 4 - Testing and Linting
 
 * Add unit tests
-* Linting with clippy
+* Lint your code with clippy
 * Bonus: split your code into `lib.rs` and `main.rs`
 
-## Block 5 - Idiomatic Rust
+## Block 5 - Idiomatic Rust (Discussion)
 
 * What is idiomatic Rust?
 * Discussing programming paradigms in Rust
@@ -94,7 +93,6 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 ## Block 6 - Performance
 
 * Performance 
-* Rayon
 * Criterion
 * Flamegraphs
 

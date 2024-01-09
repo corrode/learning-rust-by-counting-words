@@ -24,8 +24,10 @@ impl Counter {
             let line = line?;
             self.lines += 1;
             self.words += line.split_whitespace().count();
-            self.chars += line.chars().count();
         }
+
+        // Also count newline characters
+        self.chars += self.lines;
 
         Ok(self)
     }
@@ -59,6 +61,7 @@ impl Input {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let paths = env::args().skip(1).collect::<Vec<_>>();
+    let len_paths = paths.len();
 
     let inputs = paths
         .into_iter()
@@ -83,7 +86,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("{counter} {}", input.path);
     }
-    println!("{counter} total", counter = total);
+
+    if len_paths > 1 {
+        println!("{counter} total", counter = total);
+    }
 
     Ok(())
 }
