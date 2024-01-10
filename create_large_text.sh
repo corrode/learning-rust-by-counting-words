@@ -5,4 +5,4 @@
 
 # Usage: ./create_large_text.sh
 
-for i in {1..1000}; do cat fixtures/alice.txt >> fixtures/large.txt; done
+for _ in {1..1000}; do cat fixtures/alice.txt >> fixtures/large.txt; done
