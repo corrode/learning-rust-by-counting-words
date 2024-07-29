@@ -1,0 +1,32 @@
+[package]
+keywords = [
+    "wc",
+    "word count",
+    "cli",
+    "command line",
+    "utility",
+    "tool",
+    "rust",
+]
+name = "perf-wc"
+version = "0.1.0"
+readme = "README.md"
+repository = "https://github.com/corrode/wc"
+categories = ["command-line-utilities"]
+description = "A simple word count utility"
+license = "MIT"
+edition = "2021"
+
+[[bin]]
+name = "wc"
+path = "src/main.rs"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "wordcount"
+harness = false
+
+[dependencies]
+rayon = "1.10.0"
