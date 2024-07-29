@@ -26,7 +26,7 @@ many important concepts like:
 
 ## Who's the Target Audience?
 
-This workshop is intended for Rust *begginers* who are just starting out on
+This workshop is intended for Rust *beginners* who are just starting out on
 their Rust journey. You don't need to know Rust, but you should be familiar with
 the basics of programming.
 
@@ -97,21 +97,14 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 * Flamegraphs
 * Bonus: Try to improve the performance
 
-## Block 7 - Rust for the Web
+## Choose Your Own Adventure
 
 * Build a REST API around `wc`
-
-## Block 8 - Releasing Crates
-
-* Release your package on crates.io
-* Add a basic GitHub Actions workflow
-
-## Block 9 - Choose Your Own Adventure
-
 * Add a new feature
 * Improve the code
 * Add documentation
 * Make it faster
+* Release your package on crates.io
 
 It's your choice! We're here to help you.
 
