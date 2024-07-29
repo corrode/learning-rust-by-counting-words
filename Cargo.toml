@@ -1,8 +1,5 @@
-[package]
-name = "wc"
-version = "0.1.0"
-edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[workspace]
+members = ["wc", "examples/*"]
+# Only check / build main crate by default (check all with `--workspace`)
+default-members = ["wc"]
+resolver = "2"

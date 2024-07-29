@@ -59,6 +59,8 @@ You should see something like `rustc 1.74.0 (79e9716c9 2023-11-13)`.
 
 ## Block 1 - Count Words
 
+Open `wc/src/main.rs` and start coding.
+
 * Count words with the given path
 * Get it to run
 * Code quality doesn’t matter

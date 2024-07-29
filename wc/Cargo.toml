@@ -1,0 +1,18 @@
+[package]
+name = "wc"
+version = "0.1.0"
+keywords = [
+    "wc",
+    "word count",
+    "cli",
+    "command line",
+    "utility",
+    "tool",
+    "rust",
+]
+readme = "README.md"
+repository = "https://github.com/corrode/write-yourself-a-shell"
+categories = ["command-line-utilities"]
+description = " Write yourself a shell in Rust. A 6-hour course to learn about intermediate Rust concepts and idiomatic code."
+license = "MIT"
+edition = "2021"
