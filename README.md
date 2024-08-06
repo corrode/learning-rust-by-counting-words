@@ -106,6 +106,7 @@ Open `wc/src/main.rs` and start coding.
 * Improve the code
 * Add documentation
 * Make it faster
+* Handle `wc /dev/zero`
 * Release your package on crates.io
 
 It's your choice! We're here to help you.
