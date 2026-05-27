@@ -11,3 +11,7 @@ Both styles are valid. The point is to notice that Rust supports them and to thi
 - Extract a `count(contents: String) -> usize` function
 - Keep `main` focused on I/O: reading the file and printing the result
 - Try writing `count` with an iterator chain instead of a loop
+
+## Testing
+
+Having `count` as a separate function means you can call it directly in a test without touching the filesystem. Add a `#[cfg(test)]` module and write one test that calls `count("hello world")` and checks the result is 2. This is your first unit test: no files, no processes, just a function and an assertion.

@@ -16,3 +16,12 @@ Run it against the fixture file to see the result:
 - Read the file contents into a string
 - Count the words by splitting on whitespace
 - Print the word count
+
+## Testing
+
+Run your program and compare the word count against the system `wc -w`:
+
+    cargo run -- ../../fixtures/test.txt
+    wc -w ../../fixtures/test.txt
+
+The numbers should match.

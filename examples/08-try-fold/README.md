@@ -11,3 +11,7 @@ Whether this style is more readable than the loop depends on who is reading it. 
 - Rewrite the `count` function using `lines()` and `try_fold`
 - Return the three counts as a tuple `(lines, words, chars)` directly from the function
 - Keep the existing tests passing
+
+## Testing
+
+Since `count` returns a `Result`, you can test error propagation directly. Implement `Read` on a struct that always returns `Err(...)` from its `read` method, wrap it in a `BufReader`, and pass it to `count`. Assert that the result is `Err`, not `Ok`. This confirms that errors are surfaced rather than swallowed, which is the main advantage of `try_fold` over `fold` with `unwrap`.

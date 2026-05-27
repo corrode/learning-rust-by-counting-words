@@ -14,3 +14,9 @@ Note that this step counts bytes, not Unicode characters, so the numbers will di
 - Count `\n` bytes for lines, whitespace transitions for words, and total bytes for characters
 - Lock stdout with `io::stdout().lock()` before the loop
 - Spawn one thread per file using `std::thread::spawn` and collect the results
+
+## Testing
+
+Test with a string containing non-ASCII characters such as `"caf\u{00e9}"` (the e with an acute accent). Your byte count should be higher than the character count, since `\u{00e9}` encodes to two bytes in UTF-8. This is the key difference between this implementation and the earlier steps, and it is worth having a test that makes it explicit.
+
+Also test with input that has no trailing newline and confirm the line count is what you expect.

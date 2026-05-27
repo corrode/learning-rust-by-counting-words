@@ -14,3 +14,7 @@ The method signature `fn count<R: BufRead>(&mut self, reader: R)` uses a generic
 - Add a `count` method that accepts any type implementing `BufRead`
 - Implement `std::fmt::Display` for `Counter`
 - Open the file with `BufReader` instead of reading it all at once
+
+## Testing
+
+The `BufRead` bound lets you pass `BufReader::new(some_str.as_bytes())` directly to `count` in tests, so you never need a file on disk. Also test for empty input and verify all three fields stay at zero. Test with multiple consecutive spaces between words to confirm they are treated as one separator.

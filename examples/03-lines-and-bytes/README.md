@@ -11,3 +11,7 @@ For byte count, `str::len` returns the number of bytes in a UTF-8 string. For AS
 - Count bytes with `str::len`
 - Count lines with `str::lines().count()`
 - Format the output as `{lines} {words} {bytes} {path}` with right-aligned columns matching `wc`
+
+## Testing
+
+Verify each count independently using the corresponding flags: `wc -l` for lines, `wc -w` for words, `wc -c` for bytes. Also test that your output format matches `wc` on a known file, including the column alignment. A good way to spot alignment differences is to run both side by side on a file with small counts and one with large counts.

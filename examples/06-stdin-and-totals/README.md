@@ -12,3 +12,7 @@ When more than one file is given, print a total line at the end. `AddAssign` (`+
 - Use `Box<dyn BufRead>` to hold either kind of reader in the same binding
 - Implement `AddAssign` on the counter type
 - Print a total line when more than one file was processed
+
+## Testing
+
+`AddAssign` can be unit tested directly: create two counter values, add one to the other with `+=`, and verify the fields. Also test that the total line does not appear when only one file is given. For stdin, `std::process::Command` with `.stdin(Stdio::piped())` lets you write bytes into the process and capture the output without a terminal.

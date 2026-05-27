@@ -12,3 +12,7 @@ Compare your result against the system `wc` with `time wc fixtures/large.txt`. R
 - Print the elapsed time after all output using `elapsed.as_secs()` and `elapsed.subsec_millis()`
 - Build with `cargo build --release` and run on the large fixture
 - Compare the timing against the system `wc`
+
+## Testing
+
+You can test that the timing output is present by running the binary as a subprocess and checking that stdout contains `"Elapsed:"`. The actual number will vary, but the line should always be there. This pattern of spawning a binary and asserting on its stdout is useful for any CLI tool and scales well as the program grows.
