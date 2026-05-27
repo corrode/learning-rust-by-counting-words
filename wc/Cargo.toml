@@ -11,8 +11,8 @@ keywords = [
     "rust",
 ]
 readme = "README.md"
-repository = "https://github.com/corrode/write-yourself-a-shell"
+repository = "https://github.com/corrode/learning-rust-by-counting-words"
 categories = ["command-line-utilities"]
-description = " Write yourself a shell in Rust. A 6-hour course to learn about intermediate Rust concepts and idiomatic code."
+description = "Learn Rust by building a word count utility. A hands-on workshop covering I/O, error handling, testing, and idiomatic Rust."
 license = "MIT"
-edition = "2021"
+edition = "2024"

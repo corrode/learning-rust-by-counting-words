@@ -61,7 +61,7 @@ pub fn counter(input: impl Read) -> Result<Counts> {
     let counts: Counts = buffer
         .par_chunks(chunk_size)
         .map(count_chunk)
-        .reduce(|| Counts::default(), |a, b| a + b);
+        .reduce(Counts::default, |a, b| a + b);
 
     Ok(counts)
 }
@@ -74,8 +74,8 @@ mod tests {
     fn test_counter() {
         let input = "Hello, World!\nThis is a test.";
         let counts = counter(input.as_bytes()).unwrap();
-        assert_eq!(counts.words, 5);
-        assert_eq!(counts.lines, 2);
-        assert_eq!(counts.characters, 28);
+        assert_eq!(counts.words, 6); // "Hello," "World!" "This" "is" "a" "test."
+        assert_eq!(counts.lines, 1); // one '\n'
+        assert_eq!(counts.characters, 29); // 29 bytes
     }
 }

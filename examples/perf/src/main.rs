@@ -19,11 +19,7 @@ fn main() -> Result<()> {
         return Err("Could not read file".into());
     }
 
-    let mut total = Counts {
-        words: 0,
-        lines: 0,
-        characters: 0,
-    };
+    let mut total = Counts::default();
 
     for file in std::env::args().skip(1) {
         let mut reader: Box<dyn Read> = if file == STDIN {
