@@ -1,18 +1,10 @@
 [package]
 name = "wc"
 version = "0.1.0"
-keywords = [
-    "wc",
-    "word count",
-    "cli",
-    "command line",
-    "utility",
-    "tool",
-    "rust",
-]
-readme = "README.md"
-repository = "https://github.com/corrode/learning-rust-by-counting-words"
-categories = ["command-line-utilities"]
+edition = "2024"
 description = "Learn Rust by building a word count utility. A hands-on workshop covering I/O, error handling, testing, and idiomatic Rust."
 license = "MIT"
-edition = "2024"
+readme = "../README.md"
+repository = "https://github.com/corrode/learning-rust-by-counting-words"
+keywords = ["wc", "word-count", "cli"]
+categories = ["command-line-utilities"]

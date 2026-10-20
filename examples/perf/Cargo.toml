@@ -1,36 +1,27 @@
 [package]
-keywords = [
-    "wc",
-    "word count",
-    "cli",
-    "command line",
-    "utility",
-    "tool",
-    "rust",
-]
 name = "perf-wc"
 version = "0.1.0"
-readme = "README.md"
-repository = "https://github.com/corrode/wc"
-categories = ["command-line-utilities"]
+edition = "2024"
 description = "A simple word count utility"
 license = "MIT"
-edition = "2024"
+readme = "../../README.md"
+repository = "https://github.com/corrode/learning-rust-by-counting-words"
+keywords = ["wc", "word-count", "cli"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+rayon = "1.12.0"
+
+[dev-dependencies]
+criterion = { version = "0.8", features = ["html_reports"] }
 
 [lib]
 name = "wc"
-path = "src/lib.rs"
 
 [[bin]]
 name = "wc"
 path = "src/main.rs"
 
-[dev-dependencies]
-criterion = { version = "0.8", features = ["html_reports"] }
-
 [[bench]]
 name = "wordcount"
 harness = false
-
-[dependencies]
-rayon = "1.12.0"
