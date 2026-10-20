@@ -1,2 +1,5 @@
 /target
 fixtures/large.txt
+/slides/node_modules/
+/slides/dist/
+/slides/.slidev/

@@ -1,6 +1,10 @@
 # Learning Rust by Counting Words
 
-![Course banner](assets/banner.png)
+[![Course banner](assets/banner.png)](slides/learning-rust-by-counting-words.pdf)
+
+<p align="center">
+  <a href="slides/learning-rust-by-counting-words.pdf">Open slides (PDF)</a>
+</p>
 
 ## Introduction
 
@@ -38,6 +42,14 @@ Speaking of which...
 
 * [rust](https://www.rust-lang.org/tools/install)
 * [git](https://git-scm.com/)
+
+## Workshop Slides
+
+Follow along with the [PDF](slides/learning-rust-by-counting-words.pdf), or use the
+[Slidev deck](slides/) to present with notes and progressive hints. The
+[slide guide](slides/README.md#present-build-and-export) explains how to edit,
+present, build, and export it. Node.js is only needed for the deck, not for the
+Rust exercises.
 
 ## Structure
 

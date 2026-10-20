@@ -1,0 +1,22 @@
+{
+  "name": "learning-rust-by-counting-words-slides",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+
+    "dev": "slidev",
+
+    "build": "slidev build --base ./",
+    "export": "slidev export --output learning-rust-by-counting-words.pdf"
+  },
+  "devDependencies": {
+    "@fontsource/bebas-neue": "5.3.0",
+    "@fontsource/inter": "5.3.0",
+    "@slidev/cli": "53.0.0",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "1.64.1"
+  }
+}

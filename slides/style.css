@@ -1,0 +1,94 @@
+@import '@fontsource/bebas-neue/latin-400.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-600.css';
+
+:root {
+  --course-yellow: #ffc61a;
+  --course-brown: #432a20;
+  --course-pink: #f34c79;
+  --slidev-theme-primary: var(--course-brown);
+}
+
+.slidev-layout {
+  padding: 46px 56px 72px;
+  background: var(--course-yellow);
+  color: var(--course-brown);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.slidev-layout h1 {
+  max-width: 870px;
+  margin: 0 0 28px;
+  padding-bottom: 13px;
+  border-bottom: 5px solid var(--course-pink);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.slidev-layout p { margin: 18px 0; }
+.slidev-layout h1 + p { opacity: 1; }
+.slidev-layout ul { padding-left: 1.1em; }
+.slidev-layout li { padding-left: 0.15em; margin: 13px 0; }
+.slidev-layout li::marker { color: var(--course-brown); }
+.slidev-layout a {
+  color: inherit;
+  border: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--course-pink);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+.slidev-layout p:has(> a) { font-size: 18px; margin-top: 28px; }
+.slidev-layout :not(pre) > code {
+  color: var(--course-brown);
+  background: rgb(67 42 32 / 8%);
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 0.84em;
+}
+.slidev-layout pre {
+  padding: 22px 24px !important;
+  border-radius: 8px;
+  background: #2b211d !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+  box-shadow: 5px 5px 0 rgb(67 42 32 / 15%);
+}
+.slidev-layout pre code { font-size: inherit; line-height: inherit; }
+.slidev-layout table { font-size: 26px; margin-top: 24px; }
+.slidev-layout th, .slidev-layout td { border-color: rgb(67 42 32 / 25%); padding: 12px 18px; }
+
+.slidev-layout.cover { padding-top: 115px; }
+.slidev-layout.cover::before {
+  content: 'RUST COURSE';
+  position: absolute;
+  top: 52px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+}
+.slidev-layout.cover h1 { max-width: 770px; font-size: 88px; margin-bottom: 26px; }
+.slidev-layout.cover p { font-size: 26px; }
+/* Keep dots as vector geometry when Slidev scales the slide and exports PDF. */
+.slidev-layout.cover .cover-dots {
+  position: absolute;
+  right: 28px;
+  top: 24px;
+  width: 140px;
+  height: 140px;
+  fill: var(--course-brown);
+  pointer-events: none;
+}
+
+.course-wordmark {
+  position: absolute;
+  bottom: 21px;
+  right: 40px;
+  pointer-events: none;
+}
+.course-wordmark img { display: block; width: 116px; height: auto; }
