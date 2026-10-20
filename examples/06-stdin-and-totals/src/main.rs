@@ -1,36 +1,19 @@
 use std::env;
 use std::fmt::{self, Display, Formatter};
 use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::io::{self, BufRead, BufReader};
 use std::ops::AddAssign;
 
 const STDIN: &str = "-";
 
-/// Counts words, lines, and characters.
 #[derive(Default, Copy, Clone)]
-struct Counter {
+struct Counts {
     words: usize,
     lines: usize,
     chars: usize,
 }
 
-impl Counter {
-    fn count<R: BufRead>(&mut self, reader: R) -> Result<&mut Counter, std::io::Error> {
-        for line in reader.lines() {
-            let line = line?;
-            self.lines += 1;
-            self.words += line.split_whitespace().count();
-            self.chars += line.chars().count();
-        }
-
-        // Account for newline characters stripped by lines()
-        self.chars += self.lines;
-
-        Ok(self)
-    }
-}
-
-impl AddAssign for Counter {
+impl AddAssign for Counts {
     fn add_assign(&mut self, rhs: Self) {
         self.words += rhs.words;
         self.lines += rhs.lines;
@@ -38,29 +21,58 @@ impl AddAssign for Counter {
     }
 }
 
-impl Display for Counter {
+impl Display for Counts {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         write!(f, "{:>7} {:>7} {:>7}", self.lines, self.words, self.chars)
+    }
+}
+
+struct Counter {
+    reader: Box<dyn BufRead>,
+}
+
+impl Counter {
+    /// We use `impl BufRead + 'static` to accept any owned reader,
+    /// and then we box it up internally.
+    fn new(reader: impl BufRead + 'static) -> Self {
+        Self {
+            reader: Box::new(reader),
+        }
+    }
+
+    fn count(self) -> Result<Counts, std::io::Error> {
+        let mut counts = Counts::default();
+
+        for line in self.reader.lines() {
+            let line = line?;
+            counts.lines += 1;
+            counts.words += line.split_whitespace().count();
+            counts.chars += line.chars().count();
+        }
+
+        counts.chars += counts.lines;
+        Ok(counts)
     }
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let paths = env::args().skip(1).collect::<Vec<_>>();
     let multiple = paths.len() > 1;
-    let mut total = Counter::default();
+    let mut total = Counts::default();
 
     for path in &paths {
-        let reader: Box<dyn BufRead> = if path == STDIN {
-            Box::new(BufReader::new(std::io::stdin()))
+        // Because `Counter` is not generic, both branches
+        // evaluate to the exact same type: `Counter`.
+        let counter = if path == STDIN {
+            Counter::new(BufReader::new(io::stdin()))
         } else {
-            Box::new(BufReader::new(File::open(path)?))
+            Counter::new(BufReader::new(File::open(path)?))
         };
 
-        let mut counter = Counter::default();
-        counter.count(reader)?;
-        total += counter;
+        let counts = counter.count()?;
 
-        println!("{counter} {path}");
+        total += counts;
+        println!("{counts} {path}");
     }
 
     if multiple {
